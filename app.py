@@ -10,6 +10,7 @@ CORS(app)
 
 # Load your trained model
 model = tf.keras.models.load_model('TerrainRecognitionModel.h5')
+model_each = tf.keras.models.load_model('TerrainRecognitionModelEach.h5')
 
 # Define class mapping
 class_mapping = {
@@ -38,25 +39,37 @@ def preprocess_image(image):
 def predict():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
-    
+
     file = request.files['file']
-    
+
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
-    
+
     if file:
         try:
             # Read and preprocess the image
             image = Image.open(file)
             preprocessed_image = preprocess_image(image)
-            
-            # Make a prediction
-            prediction_number = np.argmax(model.predict(preprocessed_image))
+
+            # Make predictions
+            prediction = model.predict(preprocessed_image)
+            prediction_each = model_each.predict(preprocessed_image)
+
+            prediction_number = np.argmax(prediction)
             predicted_class = class_mapping[prediction_number]
-            
-            return jsonify({'class': predicted_class})
+
+            # Get percentages for each class
+            percentages = {
+                'Grassy': prediction_each[0][0] * 100,
+                'Marshy': prediction_each[0][1] * 100,
+                'Rocky': prediction_each[0][2] * 100,
+                'Sandy': prediction_each[0][3] * 100
+            }
+
+            return jsonify({'class': predicted_class, 'percentages': percentages})
         except Exception as e:
             return jsonify({'error': str(e)})
+
 
 if __name__ == '__main__':
     app.run(debug=True)

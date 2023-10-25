@@ -8,7 +8,11 @@ document.querySelector('form').addEventListener('submit', function (e) {
     .then(response => response.json())
     .then(data => {
         const resultDiv = document.getElementById('result');
-        resultDiv.textContent = `Predicted Class: ${data.class}`;
+        document.getElementById('predictedClass').textContent = data.class;
+        document.getElementById('percentageGrassy').textContent = data.percentages.Grassy;
+        document.getElementById('percentageMarshy').textContent = data.percentages.Marshy;
+        document.getElementById('percentageRocky').textContent = data.percentages.Rocky;
+        document.getElementById('percentageSandy').textContent = data.percentages.Sandy;
     })
     .catch(error => {
         console.error('Error:', error);

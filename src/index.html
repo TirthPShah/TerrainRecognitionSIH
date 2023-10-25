@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terrain Recognition</title>
 </head>
 <body>
@@ -11,8 +9,13 @@
         <input type="file" name="file" accept="image/*" required>
         <input type="submit" value="Predict">
     </form>
-    <div id="result"></div>
-    <script src = "../script.js">
-    </script>
+    <div id="result">
+        <p>Predicted Class: <span id="predictedClass"></span></p>
+        <p>Percentage Grassy: <span id="percentageGrassy"></span>%</p>
+        <p>Percentage Marshy: <span id="percentageMarshy"></span>%</p>
+        <p>Percentage Rocky: <span id="percentageRocky"></span>%</p>
+        <p>Percentage Sandy: <span id="percentageSandy"></span>%</p>
+    </div>
+    <script src="../script.js"></script>
 </body>
 </html>
