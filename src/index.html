@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Terrain Recognition</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <h1>Terrain Recognition</h1>
@@ -9,7 +10,7 @@
         <input type="file" name="file" accept="image/*" required>
         <input type="submit" value="Predict">
     </form>
-    <div id="result">
+    <div id="result" class="hidden">
         <p>Predicted Class: <span id="predictedClass"></span></p>
         <p>Percentage Grassy: <span id="percentageGrassy"></span>%</p>
         <p>Percentage Marshy: <span id="percentageMarshy"></span>%</p>

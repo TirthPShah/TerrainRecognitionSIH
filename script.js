@@ -8,6 +8,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
     .then(response => response.json())
     .then(data => {
         const resultDiv = document.getElementById('result');
+        resultDiv.classList.remove('hidden');
         document.getElementById('predictedClass').textContent = data.class;
         document.getElementById('percentageGrassy').textContent = data.percentages.Grassy;
         document.getElementById('percentageMarshy').textContent = data.percentages.Marshy;
