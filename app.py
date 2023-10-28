@@ -10,7 +10,7 @@ CORS(app)
 
 # Load your trained model
 model = tf.keras.models.load_model('TerrainRecognitionModel.h5')
-model_each = tf.keras.models.load_model('TerrainRecognitionModelEach.h5')
+model_each = tf.keras.models.load_model('PredictEach.h5')
 
 # Define class mapping
 class_mapping = {
