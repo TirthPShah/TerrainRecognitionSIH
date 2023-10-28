@@ -80,6 +80,7 @@ const messages = [
     "Made with ❤️ in India 🇮🇳",
     "Made with ❤️ for the world 🌍",
     "Made with ❤️ by PDEU Students",
+    "Made with ❤️ by Team Tech Turtles",
     "Made with ❤️ under the guidance of Prof. Vipul Mishra",
     "Made with ❤️ by Darshan Rajani",
     "Made with ❤️ by Swayam Desai",
